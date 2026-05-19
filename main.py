@@ -16,7 +16,7 @@ vt=sqlite3.connect("kullaniciverileri.db")
 im=vt.cursor()
 
 
-im.execute("CREATE TABLE IF NOT EXISTS kullaniciverileri (kullaniciadi TEXT, sifre TEXT)")
+im.execute("CREATE TABLE IF NOT EXISTS kullaniciverileri (kullaniciadi TEXT, sifre TEXT,Ant_Ugur TEXT,Ant_Eray TEXT,Ant_Cafer TEXT)")
 vt.commit()
 
 im.execute("SELECT kullaniciadi, sifre FROM kullaniciverileri")
@@ -88,7 +88,7 @@ while(True):
                     print("Hatali seçim yaptiniz")
                     continue          
 
-            im.execute("INSERT INTO kullaniciverileri (kullaniciadi,sifre) VALUES (?,?)", (yeni_kullaniciadi, yeni_sifre))
+            im.execute("INSERT INTO kullaniciverileri (kullaniciadi,sifre,Ant_Ugur,Ant_Eray,Ant_Cafer) VALUES (?,?,?,?,?)", (yeni_kullaniciadi, yeni_sifre,antrenorsayac1,antrenorsayac2,antrenorsayac3))
             vt.commit()
           
         else:
